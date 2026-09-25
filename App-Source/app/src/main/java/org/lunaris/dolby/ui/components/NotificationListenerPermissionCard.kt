@@ -23,11 +23,10 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.LifecycleEventObserver
-import androidx.lifecycle.compose.LocalLifecycleOwner
+import androidx.compose.ui.platform.LocalLifecycleOwner
 import org.lunaris.dolby.R
 import org.lunaris.dolby.service.DolbyNotificationListener
 
-@OptIn(ExperimentalMaterial3ExpressiveApi::class)
 @Composable
 fun NotificationListenerPermissionCard(
     modifier: Modifier = Modifier

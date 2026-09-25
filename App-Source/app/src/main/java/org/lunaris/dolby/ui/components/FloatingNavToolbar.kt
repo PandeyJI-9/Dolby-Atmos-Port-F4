@@ -27,7 +27,6 @@ import kotlinx.coroutines.launch
 import org.lunaris.dolby.R
 import org.lunaris.dolby.utils.*
 
-@OptIn(ExperimentalMaterial3ExpressiveApi::class)
 @Composable
 fun FloatingNavToolbar(
     currentRoute: String,
@@ -120,7 +119,6 @@ fun FloatingNavToolbar(
     }
 }
 
-@OptIn(ExperimentalMaterial3ExpressiveApi::class)
 @Composable
 private fun NavToolbarItem(
     icon: ImageVector,
@@ -155,7 +153,7 @@ private fun NavToolbarItem(
         Row(
             verticalAlignment = Alignment.CenterVertically,
             modifier = Modifier.animateContentSize(
-                animationSpec = MaterialTheme.motionScheme.defaultSpatialSpec()
+                animationSpec = spring(stiffness = Spring.StiffnessLow)Spec()
             )
         ) {
             key(currentSelectionKey) {
@@ -185,16 +183,16 @@ private fun NavToolbarItem(
             AnimatedVisibility(
                 visible = selected,
                 enter = expandHorizontally(
-                    animationSpec = MaterialTheme.motionScheme.defaultSpatialSpec(),
+                    animationSpec = spring(stiffness = Spring.StiffnessLow)Spec(),
                     expandFrom = Alignment.Start
                 ) + fadeIn(
-                    animationSpec = MaterialTheme.motionScheme.defaultEffectsSpec()
+                    animationSpec = tween(300)Spec()
                 ),
                 exit = shrinkHorizontally(
-                    animationSpec = MaterialTheme.motionScheme.defaultSpatialSpec(),
+                    animationSpec = spring(stiffness = Spring.StiffnessLow)Spec(),
                     shrinkTowards = Alignment.Start
                 ) + fadeOut(
-                    animationSpec = MaterialTheme.motionScheme.defaultEffectsSpec()
+                    animationSpec = tween(300)Spec()
                 ),
                 label = "text_visibility_$label"
             ) {

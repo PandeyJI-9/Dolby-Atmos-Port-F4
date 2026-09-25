@@ -54,7 +54,6 @@ fun ModernDolbySettingsScreen(
                         )
                     }
                 },
-                expandedHeight = 92.dp,
                 actions = {
                     IconButton(onClick = { showCreditsDialog = true }) {
                         Icon(

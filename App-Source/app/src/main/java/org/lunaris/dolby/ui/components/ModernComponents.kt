@@ -83,18 +83,17 @@ fun Modifier.squishable(
         }
 }
 
-@OptIn(ExperimentalMaterial3ExpressiveApi::class)
 @Composable
 fun tileSelectionBorder(selected: Boolean): BorderStroke {
     val width by animateDpAsState(
         targetValue = if (selected) 1.1.dp else 0.8.dp,
-        animationSpec = MaterialTheme.motionScheme.defaultEffectsSpec(),
+        animationSpec = tween(300)Spec(),
         label = "tile_border_width"
     )
     val color by animateColorAsState(
         targetValue = (if (selected) MaterialTheme.colorScheme.primary
                        else MaterialTheme.colorScheme.outlineVariant).copy(alpha = 0.8f),
-        animationSpec = MaterialTheme.motionScheme.defaultEffectsSpec(),
+        animationSpec = tween(300)Spec(),
         label = "tile_border_color"
     )
     return BorderStroke(width, color)
@@ -125,7 +124,6 @@ fun DolbyLogo(
     }
 }
 
-@OptIn(ExperimentalMaterial3ExpressiveApi::class)
 @Composable
 fun DolbyMainCard(
     enabled: Boolean,
@@ -299,7 +297,6 @@ fun ModernSettingsCard(
     }
 }
 
-@OptIn(ExperimentalMaterial3ExpressiveApi::class)
 @Composable
 fun ModernSettingSwitch(
     title: String,
@@ -317,7 +314,7 @@ fun ModernSettingSwitch(
             MaterialTheme.colorScheme.secondaryContainer
         else
             MaterialTheme.colorScheme.surfaceContainerHigh,
-        animationSpec = MaterialTheme.motionScheme.defaultEffectsSpec(),
+        animationSpec = tween(300)Spec(),
         label = "switch_row_container"
     )
     val titleColor = if (checked)

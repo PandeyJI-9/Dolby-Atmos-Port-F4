@@ -27,7 +27,6 @@ import org.lunaris.dolby.R
 import org.lunaris.dolby.service.AppProfileMonitorService
 import org.lunaris.dolby.DolbyConstants
 
-@OptIn(ExperimentalMaterial3ExpressiveApi::class)
 @Composable
 fun AppProfileSettingsCard(
     onManageClick: () -> Unit,

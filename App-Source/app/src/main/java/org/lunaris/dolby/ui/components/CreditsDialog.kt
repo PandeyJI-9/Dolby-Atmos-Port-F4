@@ -71,7 +71,6 @@ private fun t(name: String, githubUsername: String = name) = Translator(name, gi
 private fun translation(language: String, vararg translators: Translator) =
     TranslationEntry(language, translators.toList())
 
-@OptIn(ExperimentalMaterial3ExpressiveApi::class)
 @Composable
 fun CreditsDialog(
     onDismiss: () -> Unit

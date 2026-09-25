@@ -225,7 +225,6 @@ fun ModernEqualizerScreen(
     }
 }
 
-@OptIn(ExperimentalMaterial3ExpressiveApi::class)
 @Composable
 private fun ModernEqualizerContent(
     state: EqualizerUiState.Success,
@@ -343,7 +342,7 @@ private fun ModernEqualizerContent(
             }
         }
 
-        val viewTransitionSpec = MaterialTheme.motionScheme.defaultEffectsSpec<Float>()
+        val viewTransitionSpec = tween(300)Spec<Float>()
         AnimatedContent(
             targetState = viewMode,
             transitionSpec = {
