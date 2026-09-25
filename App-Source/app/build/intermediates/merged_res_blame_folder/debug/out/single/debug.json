@@ -1,0 +1,30 @@
+[
+    {
+        "merged": "org.lunaris.dolby.app-merged_res-62:/drawable_ic_launcher_mono.xml.flat",
+        "source": "org.lunaris.dolby.app-main-64:/drawable/ic_launcher_mono.xml"
+    },
+    {
+        "merged": "org.lunaris.dolby.app-merged_res-62:/mipmap-anydpi_ic_launcher.xml.flat",
+        "source": "org.lunaris.dolby.app-main-64:/mipmap-anydpi/ic_launcher.xml"
+    },
+    {
+        "merged": "org.lunaris.dolby.app-merged_res-62:/drawable_ic_dolby_logo_right.xml.flat",
+        "source": "org.lunaris.dolby.app-main-64:/drawable/ic_dolby_logo_right.xml"
+    },
+    {
+        "merged": "org.lunaris.dolby.app-merged_res-62:/drawable_ic_dolby_logo_left.xml.flat",
+        "source": "org.lunaris.dolby.app-main-64:/drawable/ic_dolby_logo_left.xml"
+    },
+    {
+        "merged": "org.lunaris.dolby.app-merged_res-62:/xml_file_paths.xml.flat",
+        "source": "org.lunaris.dolby.app-main-64:/xml/file_paths.xml"
+    },
+    {
+        "merged": "org.lunaris.dolby.app-merged_res-62:/drawable_ic_launcher_foreground.xml.flat",
+        "source": "org.lunaris.dolby.app-main-64:/drawable/ic_launcher_foreground.xml"
+    },
+    {
+        "merged": "org.lunaris.dolby.app-merged_res-62:/drawable_ic_dolby_qs.xml.flat",
+        "source": "org.lunaris.dolby.app-main-64:/drawable/ic_dolby_qs.xml"
+    }
+]

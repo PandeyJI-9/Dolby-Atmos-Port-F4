@@ -1,0 +1,6 @@
+id=poco_f4_dolby_hyperos
+name=Poco F4 (Munch) Dolby Atmos Native Fix
+version=v1.0 (HyperOS 3)
+versionCode=1
+author=@pandey_ji_8
+description=1000% working Dolby Atmos hardware audio fix for Ported HyperOS 3 on Poco F4. Restores native stock sound quality, AW88261 SmartPA tuning, and MiSound integration. No Bootloop.
