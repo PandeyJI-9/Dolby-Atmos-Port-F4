@@ -7,6 +7,9 @@ on:
     branches: [ "main", "master" ]
   workflow_dispatch:
 
+permissions:
+  contents: write
+
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -19,15 +22,17 @@ jobs:
       with:
         java-version: '17'
         distribution: 'temurin'
-
-    - name: Setup Gradle
-      uses: gradle/gradle-build-action@v2
+        cache: gradle
 
     - name: Build with Gradle
-      run: gradle assembleDebug
+      run: ./gradlew assembleDebug || gradle assembleDebug
 
-    - name: Upload APK
-      uses: actions/upload-artifact@v3
+    - name: Upload to Release
+      uses: softprops/action-gh-release@v1
       with:
-        name: LunarisDolby-App
-        path: app/build/outputs/apk/debug/app-debug.apk
+        tag_name: "v1.0"
+        name: "Dolby Atmos Poco F4 (HyperOS 3) Initial Release"
+        files: app/build/outputs/apk/debug/app-debug.apk
+        body: "- 🚀 **Magisk Module**: Fully working Dolby Atmos hardware fix.\n- 📱 **Dolby App**: Modified standalone control app."
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
