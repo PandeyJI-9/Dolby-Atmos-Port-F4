@@ -11,6 +11,13 @@ This repository provides a deeply integrated, zero-latency audio solution that b
 
 ---
 
+## 📥 Downloads (Ready-Made)
+
+* 📦 **[Download Magisk Module (Dolby-Atmos-PocoF4-HyperOS3.zip)](https://github.com/PandeyJI-9/Dolby-Atmos-Port-F4/releases/latest/download/Dolby-Atmos-PocoF4-HyperOS3.zip)**
+* 📱 **[Download Dolby UI App (LunarisDolby-v1.0.apk)](https://github.com/PandeyJI-9/Dolby-Atmos-Port-F4/releases/latest/download/LunarisDolby-v1.0.apk)**
+
+---
+
 ## 🌟 Key Features
 
 * **True Hardware DSP Processing:** Hooks directly into the Snapdragon Hexagon DSP via `vendor.dolby.hardware.dms@2.0-service`. This ensures **Zero Audio Delay** (perfect for BGMI/PUBG/CoD) and zero background RAM overhead.
@@ -21,39 +28,22 @@ This repository provides a deeply integrated, zero-latency audio solution that b
 
 ---
 
-## 📁 Repository Structure
-
-### 1. `Magisk-Module/`
-Contains the flashable zip (`Dolby-Atmos-PocoF4-HyperOS3.zip`) and the raw module files. 
-* Automatically patches your `audio_effects.xml`.
-* Injects necessary `sepolicy.rule` for Android 16 permissions.
-* Configures `service.sh` for seamless initialization on boot.
-
-### 2. `App-Source/`
-The complete Kotlin/Jetpack Compose source code for the standalone **Lunaris Dolby App**.
-* Modified to run without system signature constraints (`sharedUserId` removed).
-* Includes GitHub Actions workflow for automatic APK compilation on the cloud (no local Android Studio required).
-* Features custom UI modifications and credits.
-
----
-
 ## 🚀 Installation & Usage
 
-### Flashing the Magisk Module
-1. Download `Dolby-Atmos-PocoF4-HyperOS3.zip` from the `Magisk-Module` folder (or the Releases tab).
+### 1. Flashing the Magisk Module (Required)
+1. Download the Magisk Module Zip from the Downloads section above.
 2. Open **Magisk**, **KernelSU**, or **APatch**.
 3. Go to Modules -> **Install from Storage**.
 4. Select the Zip file and flash.
 5. **Reboot** your device.
-6. *HyperOS Native Integration:* You can now go to `Settings -> Sound & Vibration -> Sound Effects` and use the native MiSound interface to control Dolby!
+*(Note: Once installed, you can natively control Dolby from `Settings -> Sound & Vibration -> Sound Effects` without any extra app if you prefer!)*
 
-### Compiling the Standalone App (Optional)
-If you wish to use the dedicated App UI instead of the native HyperOS Settings:
-1. Fork or push this repository to your GitHub account.
-2. Go to the **Actions** tab in your repository.
-3. Click on the **Build Lunaris Dolby APK** workflow.
-4. Click **Run workflow**.
-5. Within 2-3 minutes, GitHub will compile the app and provide an `app-debug.apk` artifact for you to download and install!
+### 2. Installing the Standalone App (Optional)
+If you want the dedicated advanced UI to control Dolby instead of the system settings:
+1. Download the `LunarisDolby-v1.0.apk` from the Downloads section above.
+2. Install the APK normally.
+3. Open the app and grant necessary permissions.
+4. Enjoy full control over Equalizer, Dialogue Enhancer, and Profiles!
 
 ---
 
