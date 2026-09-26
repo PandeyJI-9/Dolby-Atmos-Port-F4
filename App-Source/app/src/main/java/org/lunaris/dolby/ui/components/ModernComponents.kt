@@ -87,13 +87,13 @@ fun Modifier.squishable(
 fun tileSelectionBorder(selected: Boolean): BorderStroke {
     val width by animateDpAsState(
         targetValue = if (selected) 1.1.dp else 0.8.dp,
-        animationSpec = tween(300)Spec(),
+        animationSpec = tween(300),
         label = "tile_border_width"
     )
     val color by animateColorAsState(
         targetValue = (if (selected) MaterialTheme.colorScheme.primary
                        else MaterialTheme.colorScheme.outlineVariant).copy(alpha = 0.8f),
-        animationSpec = tween(300)Spec(),
+        animationSpec = tween(300),
         label = "tile_border_color"
     )
     return BorderStroke(width, color)
@@ -208,7 +208,7 @@ fun DolbyMainCard(
                         thumbContent = {
                             Crossfade(
                                 targetState = enabled,
-                                animationSpec = MaterialTheme.motionScheme.slowEffectsSpec(),
+                                animationSpec = tween(300),
                                 label = "switch_icon"
                             ) { isChecked ->
                                 if (isChecked) {
@@ -314,7 +314,7 @@ fun ModernSettingSwitch(
             MaterialTheme.colorScheme.secondaryContainer
         else
             MaterialTheme.colorScheme.surfaceContainerHigh,
-        animationSpec = tween(300)Spec(),
+        animationSpec = tween(300),
         label = "switch_row_container"
     )
     val titleColor = if (checked)
@@ -379,7 +379,7 @@ fun ModernSettingSwitch(
                 thumbContent = {
                     Crossfade(
                         targetState = checked,
-                        animationSpec = MaterialTheme.motionScheme.slowEffectsSpec(),
+                        animationSpec = tween(300),
                         label = "switch_icon"
                     ) { isChecked ->
                         if (isChecked) {

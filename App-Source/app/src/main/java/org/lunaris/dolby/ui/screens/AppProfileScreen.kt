@@ -34,7 +34,7 @@ import org.lunaris.dolby.domain.models.AppProfileUiState
 import org.lunaris.dolby.ui.components.ModernConfirmDialog
 import org.lunaris.dolby.ui.viewmodel.AppProfileViewModel
 
-@OptIn(ExperimentalMaterial3Api::class, ExperimentalMaterial3ExpressiveApi::class)
+@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun AppProfileScreen(
     viewModel: AppProfileViewModel,

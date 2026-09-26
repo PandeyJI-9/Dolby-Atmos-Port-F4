@@ -134,32 +134,26 @@ private fun NavToolbarItem(
 ) {
     val currentSelectionKey = remember(selected) { selected }
     
-    ToggleButton(
-        checked = selected,
-        onCheckedChange = { onClick() },
-        colors = ToggleButtonDefaults.toggleButtonColors(
-            containerColor = containerColor,
-            contentColor = onContainerColor,
-            checkedContainerColor = primaryColor,
-            checkedContentColor = onPrimaryColor
-        ),
-        shapes = ToggleButtonDefaults.shapes(
-            androidx.compose.foundation.shape.CircleShape,
-            androidx.compose.foundation.shape.CircleShape,
-            androidx.compose.foundation.shape.CircleShape
-        ),
+    Surface(
+        selected = selected,
+        onClick = { onClick() },
+        shape = androidx.compose.foundation.shape.CircleShape,
+        color = if (selected) primaryColor else containerColor,
+        contentColor = if (selected) onPrimaryColor else onContainerColor,
         modifier = modifier.height(48.dp)
     ) {
         Row(
             verticalAlignment = Alignment.CenterVertically,
-            modifier = Modifier.animateContentSize(
-                animationSpec = spring(stiffness = Spring.StiffnessLow)Spec()
-            )
+            modifier = Modifier
+                .padding(horizontal = 16.dp)
+                .animateContentSize(
+                    animationSpec = spring(stiffness = Spring.StiffnessLow)
+                )
         ) {
             key(currentSelectionKey) {
                 Crossfade(
                     targetState = isEqualizer,
-                    animationSpec = MaterialTheme.motionScheme.slowEffectsSpec(),
+                    animationSpec = tween(300),
                     label = "icon_transition_$label"
                 ) { isEq ->
                     if (isEq) {
@@ -183,16 +177,16 @@ private fun NavToolbarItem(
             AnimatedVisibility(
                 visible = selected,
                 enter = expandHorizontally(
-                    animationSpec = spring(stiffness = Spring.StiffnessLow)Spec(),
+                    animationSpec = spring(stiffness = Spring.StiffnessLow),
                     expandFrom = Alignment.Start
                 ) + fadeIn(
-                    animationSpec = tween(300)Spec()
+                    animationSpec = tween(300)
                 ),
                 exit = shrinkHorizontally(
-                    animationSpec = spring(stiffness = Spring.StiffnessLow)Spec(),
+                    animationSpec = spring(stiffness = Spring.StiffnessLow),
                     shrinkTowards = Alignment.Start
                 ) + fadeOut(
-                    animationSpec = tween(300)Spec()
+                    animationSpec = tween(300)
                 ),
                 label = "text_visibility_$label"
             ) {

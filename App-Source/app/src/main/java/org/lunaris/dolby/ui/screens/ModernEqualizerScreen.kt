@@ -54,7 +54,7 @@ enum class EqualizerViewMode {
     SLIDERS
 }
 
-@OptIn(ExperimentalMaterial3Api::class, ExperimentalMaterial3ExpressiveApi::class)
+@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun ModernEqualizerScreen(
     viewModel: EqualizerViewModel,
@@ -342,7 +342,7 @@ private fun ModernEqualizerContent(
             }
         }
 
-        val viewTransitionSpec = tween(300)Spec<Float>()
+        val viewTransitionSpec = tween<Float>(300)
         AnimatedContent(
             targetState = viewMode,
             transitionSpec = {

@@ -127,7 +127,7 @@ fun AppProfileSettingsCard(
                     thumbContent = {
                         Crossfade(
                             targetState = isEnabled,
-                            animationSpec = MaterialTheme.motionScheme.slowEffectsSpec(),
+                            animationSpec = tween(300),
                             label = "switch_icon"
                         ) { isChecked ->
                             if (isChecked) {
@@ -201,7 +201,7 @@ fun AppProfileSettingsCard(
                             thumbContent = {
                                 Crossfade(
                                     targetState = headphoneOnlyMode,
-                                    animationSpec = MaterialTheme.motionScheme.slowEffectsSpec(),
+                                    animationSpec = tween(300),
                                     label = "headphone_switch_icon"
                                 ) { isChecked ->
                                     if (isChecked) {
@@ -245,7 +245,7 @@ fun AppProfileSettingsCard(
                             thumbContent = {
                                 Crossfade(
                                     targetState = showToasts,
-                                    animationSpec = MaterialTheme.motionScheme.slowEffectsSpec(),
+                                    animationSpec = tween(300),
                                     label = "toast_switch_icon"
                                 ) { isChecked ->
                                     if (isChecked) {
@@ -329,7 +329,7 @@ fun AppProfileSettingsCard(
                     thumbContent = {
                         Crossfade(
                             targetState = isDeviceStateMemoryEnabled,
-                            animationSpec = MaterialTheme.motionScheme.slowEffectsSpec(),
+                            animationSpec = tween(300),
                             label = "device_memory_switch_icon"
                         ) { isChecked ->
                             if (isChecked) {

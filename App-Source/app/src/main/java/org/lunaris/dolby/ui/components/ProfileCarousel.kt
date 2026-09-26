@@ -38,7 +38,7 @@ import org.lunaris.dolby.R
 import org.lunaris.dolby.utils.*
 import kotlin.math.absoluteValue
 
-@OptIn(ExperimentalFoundationApi::class, ExperimentalMaterial3ExpressiveApi::class)
+@OptIn(ExperimentalFoundationApi::class)
 @Composable
 fun ProfileCarousel(
     currentProfile: Int,
@@ -189,7 +189,7 @@ private fun rememberProfilePalettes(): List<ProfilePalette> {
 private fun blend(from: Color, to: Color, fraction: Float): Color =
     lerpColor(from, to, fraction)
 
-@OptIn(ExperimentalMaterial3Api::class, ExperimentalMaterial3ExpressiveApi::class)
+@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 private fun ProfileCard(
     profile: String,
@@ -247,7 +247,7 @@ private fun ProfileCard(
             ) {
                 val iconScale by animateFloatAsState(
                     targetValue = if (isSelected) 1f else 0.85f,
-                    animationSpec = MaterialTheme.motionScheme.slowSpatialSpec(),
+                    animationSpec = spring(stiffness = Spring.StiffnessLow),
                     label = "icon_scale"
                 )
                 

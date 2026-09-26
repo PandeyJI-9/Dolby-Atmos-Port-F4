@@ -60,7 +60,11 @@ object HapticFeedbackHelper {
         return try {
             when (intensity) {
                 HapticIntensity.TEXTURE_TICK -> 
-                    VibrationEffect.createPredefined(VibrationEffect.EFFECT_TEXTURE_TICK)
+                    try {
+                        VibrationEffect.createPredefined(21)
+                    } catch (e: Exception) {
+                        VibrationEffect.createPredefined(VibrationEffect.EFFECT_TICK)
+                    }
                 HapticIntensity.TICK -> 
                     VibrationEffect.createPredefined(VibrationEffect.EFFECT_TICK)
                 HapticIntensity.CLICK -> 
