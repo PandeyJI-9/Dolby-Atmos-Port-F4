@@ -464,7 +464,9 @@ fun ModernSettingSlider(
                     lastHapticValue = intValue
                 }
                 sliderValue = newValue
-                onValueChange(newValue)
+            },
+            onValueChangeFinished = {
+                onValueChange(sliderValue)
             },
             valueRange = valueRange,
             steps = steps,
