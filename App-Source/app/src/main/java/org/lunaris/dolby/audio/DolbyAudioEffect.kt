@@ -8,17 +8,32 @@ package org.lunaris.dolby.audio
 import android.media.audiofx.AudioEffect
 import org.lunaris.dolby.DolbyConstants
 import org.lunaris.dolby.DolbyConstants.DsParam
+import java.lang.reflect.Method
 import java.util.UUID
 
-class DolbyAudioEffect(priority: Int, audioSession: Int) : AudioEffect(
-    EFFECT_TYPE_NULL, EFFECT_TYPE_DAP, priority, audioSession
-) {
+class DolbyAudioEffect(priority: Int, audioSession: Int) {
+
+    private val audioEffect: AudioEffect
+
+    init {
+        val constructor = AudioEffect::class.java.getConstructor(
+            UUID::class.java,
+            UUID::class.java,
+            Int::class.javaPrimitiveType,
+            Int::class.javaPrimitiveType
+        )
+        audioEffect = constructor.newInstance(EFFECT_TYPE_NULL, EFFECT_TYPE_DAP, priority, audioSession)
+    }
 
     var dsOn: Boolean
         get() = getIntParam(EFFECT_PARAM_ENABLE) == 1
         set(value) {
             setIntParam(EFFECT_PARAM_ENABLE, if (value) 1 else 0)
-            enabled = value
+            try {
+                setEnabledMethod.invoke(audioEffect, value)
+            } catch (e: Exception) {
+                DolbyConstants.dlog(TAG, "setEnabled failed: ${e.message}")
+            }
         }
 
     var profile: Int
@@ -26,6 +41,22 @@ class DolbyAudioEffect(priority: Int, audioSession: Int) : AudioEffect(
         set(value) {
             setIntParam(EFFECT_PARAM_PROFILE, value)
         }
+
+    fun hasControl(): Boolean {
+        return try {
+            hasControlMethod.invoke(audioEffect) as? Boolean ?: true
+        } catch (e: Exception) {
+            true
+        }
+    }
+
+    fun release() {
+        try {
+            audioEffect.release()
+        } catch (e: Exception) {
+            DolbyConstants.dlog(TAG, "release failed: ${e.message}")
+        }
+    }
 
     private fun setIntParam(param: Int, value: Int) {
         DolbyConstants.dlog(TAG, "setIntParam($param, $value)")
@@ -42,6 +73,30 @@ class DolbyAudioEffect(priority: Int, audioSession: Int) : AudioEffect(
         checkStatus(getParameter(EFFECT_PARAM_CPDP_VALUES + param, buf))
         return byteArrayToInt32(buf).also {
             DolbyConstants.dlog(TAG, "getIntParam($param): $it")
+        }
+    }
+
+    private fun setParameter(param: Int, value: ByteArray): Int {
+        return try {
+            setParameterMethod.invoke(audioEffect, param, value) as? Int ?: 0
+        } catch (e: Exception) {
+            -1
+        }
+    }
+
+    private fun getParameter(param: Int, value: ByteArray): Int {
+        return try {
+            getParameterMethod.invoke(audioEffect, param, value) as? Int ?: 0
+        } catch (e: Exception) {
+            -1
+        }
+    }
+
+    private fun checkStatus(status: Int) {
+        try {
+            checkStatusMethod.invoke(audioEffect, status)
+        } catch (e: Exception) {
+            // ignore
         }
     }
 
@@ -86,6 +141,23 @@ class DolbyAudioEffect(priority: Int, audioSession: Int) : AudioEffect(
     companion object {
         private const val TAG = "DolbyAudioEffect"
         private val EFFECT_TYPE_DAP = UUID.fromString("9d4921da-8225-4f29-aefa-39537a04bcaa")
+        private val EFFECT_TYPE_NULL = UUID.fromString("ec7178ec-e5e1-4432-a3f4-4657e6795210")
+
+        private val setParameterMethod: Method = AudioEffect::class.java.getMethod(
+            "setParameter", Int::class.javaPrimitiveType, ByteArray::class.java
+        )
+        private val getParameterMethod: Method = AudioEffect::class.java.getMethod(
+            "getParameter", Int::class.javaPrimitiveType, ByteArray::class.java
+        )
+        private val checkStatusMethod: Method = AudioEffect::class.java.getDeclaredMethod(
+            "checkStatus", Int::class.javaPrimitiveType
+        ).apply { isAccessible = true }
+        private val setEnabledMethod: Method = AudioEffect::class.java.getMethod(
+            "setEnabled", Boolean::class.javaPrimitiveType
+        )
+        private val hasControlMethod: Method = AudioEffect::class.java.getMethod(
+            "hasControl"
+        )
 
         private const val EFFECT_PARAM_ENABLE = 0
         private const val EFFECT_PARAM_CPDP_VALUES = 5
@@ -99,7 +171,7 @@ class DolbyAudioEffect(priority: Int, audioSession: Int) : AudioEffect(
             dst[idx++] = (value and 0xff).toByte()
             dst[idx++] = ((value ushr 8) and 0xff).toByte()
             dst[idx++] = ((value ushr 16) and 0xff).toByte()
-            dst[idx] = ((value ushr 24) and 0xff).toByte()
+            dst[idx++] = ((value ushr 24) and 0xff).toByte()
         }
 
         private fun byteArrayToInt32(ba: ByteArray): Int {

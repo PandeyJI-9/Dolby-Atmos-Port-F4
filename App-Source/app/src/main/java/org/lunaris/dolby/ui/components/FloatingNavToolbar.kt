@@ -49,72 +49,67 @@ fun FloatingNavToolbar(
         modifier = modifier.fillMaxWidth(),
         contentAlignment = Alignment.Center
     ) {
-        HorizontalFloatingToolbar(
-            expanded = true,
-            colors = FloatingToolbarDefaults.vibrantFloatingToolbarColors(
-                toolbarContainerColor = containerColor,
-                toolbarContentColor = onContainerColor
-            ),
-            modifier = Modifier
-                .padding(
-                    top = FloatingToolbarDefaults.ScreenOffset,
-                    bottom = FloatingToolbarDefaults.ScreenOffset
-                )
-                .shadow(
-                    elevation = 12.dp,
-                    shape = MaterialTheme.shapes.extraLarge,
-                    ambientColor = MaterialTheme.colorScheme.scrim,
-                    spotColor = MaterialTheme.colorScheme.scrim
-                )
+        Surface(
+            shape = MaterialTheme.shapes.extraLarge,
+            color = containerColor,
+            contentColor = onContainerColor,
+            shadowElevation = 12.dp,
+            modifier = Modifier.padding(vertical = 12.dp)
         ) {
-            NavToolbarItem(
-                icon = Icons.Default.Home,
-                label = stringResource(R.string.home),
-                selected = isHomeSelected,
-                primaryColor = primaryColor,
-                onPrimaryColor = onPrimaryColor,
-                containerColor = containerColor,
-                onContainerColor = onContainerColor,
-                onClick = {
-                    scope.launch {
-                        haptic.performHaptic(HapticFeedbackHelper.HapticIntensity.CLICK)
+            Row(
+                modifier = Modifier.padding(horizontal = 8.dp, vertical = 6.dp),
+                horizontalArrangement = Arrangement.spacedBy(8.dp),
+                verticalAlignment = Alignment.CenterVertically
+            ) {
+                NavToolbarItem(
+                    icon = Icons.Default.Home,
+                    label = stringResource(R.string.home),
+                    selected = isHomeSelected,
+                    primaryColor = primaryColor,
+                    onPrimaryColor = onPrimaryColor,
+                    containerColor = containerColor,
+                    onContainerColor = onContainerColor,
+                    onClick = {
+                        scope.launch {
+                            haptic.performHaptic(HapticFeedbackHelper.HapticIntensity.CLICK)
+                        }
+                        onNavigate("settings")
                     }
-                    onNavigate("settings")
-                }
-            )
-            
-            NavToolbarItem(
-                icon = Icons.Default.GraphicEq,
-                label = stringResource(R.string.equalizer),
-                selected = isEqualizerSelected,
-                isEqualizer = true,
-                primaryColor = primaryColor,
-                onPrimaryColor = onPrimaryColor,
-                containerColor = containerColor,
-                onContainerColor = onContainerColor,
-                onClick = {
-                    scope.launch {
-                        haptic.performHaptic(HapticFeedbackHelper.HapticIntensity.CLICK)
+                )
+                
+                NavToolbarItem(
+                    icon = Icons.Default.GraphicEq,
+                    label = stringResource(R.string.equalizer),
+                    selected = isEqualizerSelected,
+                    isEqualizer = true,
+                    primaryColor = primaryColor,
+                    onPrimaryColor = onPrimaryColor,
+                    containerColor = containerColor,
+                    onContainerColor = onContainerColor,
+                    onClick = {
+                        scope.launch {
+                            haptic.performHaptic(HapticFeedbackHelper.HapticIntensity.CLICK)
+                        }
+                        onNavigate("equalizer")
                     }
-                    onNavigate("equalizer")
-                }
-            )
-            
-            NavToolbarItem(
-                icon = Icons.Default.Settings,
-                label = stringResource(R.string.advanced),
-                selected = isAdvancedSelected,
-                primaryColor = primaryColor,
-                onPrimaryColor = onPrimaryColor,
-                containerColor = containerColor,
-                onContainerColor = onContainerColor,
-                onClick = {
-                    scope.launch {
-                        haptic.performHaptic(HapticFeedbackHelper.HapticIntensity.CLICK)
+                )
+                
+                NavToolbarItem(
+                    icon = Icons.Default.Settings,
+                    label = stringResource(R.string.advanced),
+                    selected = isAdvancedSelected,
+                    primaryColor = primaryColor,
+                    onPrimaryColor = onPrimaryColor,
+                    containerColor = containerColor,
+                    onContainerColor = onContainerColor,
+                    onClick = {
+                        scope.launch {
+                            haptic.performHaptic(HapticFeedbackHelper.HapticIntensity.CLICK)
+                        }
+                        onNavigate("advanced")
                     }
-                    onNavigate("advanced")
-                }
-            )
+                )
+            }
         }
     }
 }

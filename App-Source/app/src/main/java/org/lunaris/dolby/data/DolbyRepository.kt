@@ -131,11 +131,25 @@ class DolbyRepository(private val context: Context) : AutoCloseable {
 
     private fun checkIsOnSpeaker(): Boolean {
         return try {
-            val device = audioManager.getDevicesForAttributes(ATTRIBUTES_MEDIA)[0]
-            device.type == AudioDeviceInfo.TYPE_BUILTIN_SPEAKER
+            val method = audioManager.javaClass.getMethod("getDevicesForAttributes", AudioAttributes::class.java)
+            val list = method.invoke(audioManager, ATTRIBUTES_MEDIA) as? List<*>
+            val first = list?.firstOrNull()
+            if (first != null) {
+                val getTypeMethod = first.javaClass.getMethod("getType")
+                val type = getTypeMethod.invoke(first) as? Int
+                type == AudioDeviceInfo.TYPE_BUILTIN_SPEAKER
+            } else {
+                audioManager.getDevices(AudioManager.GET_DEVICES_OUTPUTS)
+                    .any { it.type == AudioDeviceInfo.TYPE_BUILTIN_SPEAKER }
+            }
         } catch (e: Exception) {
             DolbyConstants.dlog(TAG, "Error checking speaker state: ${e.message}")
-            false
+            try {
+                audioManager.getDevices(AudioManager.GET_DEVICES_OUTPUTS)
+                    .any { it.type == AudioDeviceInfo.TYPE_BUILTIN_SPEAKER }
+            } catch (ex: Exception) {
+                false
+            }
         }
     }
 

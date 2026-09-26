@@ -55,7 +55,14 @@ class DolbyEffectService : Service() {
 
     private val playbackCallback = object : AudioManager.AudioPlaybackCallback() {
         override fun onPlaybackConfigChanged(configs: MutableList<AudioPlaybackConfiguration>?) {
-            val isActive = configs?.any { it.isActive } == true
+            val isActive = configs?.any { config ->
+                try {
+                    val method = config.javaClass.getMethod("isActive")
+                    method.invoke(config) as? Boolean == true
+                } catch (e: Exception) {
+                    true
+                }
+            } == true
             if (isActive) {
                 repository.applySavedState()
             }
@@ -119,32 +126,36 @@ class DolbyEffectService : Service() {
     }
 
     private fun getCurrentOutputDevice(): AudioDeviceInfo? {
-        val routedDevice = try {
-            audioManager
-                .getDevicesForAttributes(ATTRIBUTES_MEDIA)
-                .firstOrNull()
+        val (routedType, routedAddress) = try {
+            val method = audioManager.javaClass.getMethod("getDevicesForAttributes", AudioAttributes::class.java)
+            val list = method.invoke(audioManager, ATTRIBUTES_MEDIA) as? List<*>
+            val routedDevice = list?.firstOrNull()
+            if (routedDevice != null) {
+                val getType = routedDevice.javaClass.getMethod("getType")
+                val getAddress = routedDevice.javaClass.getMethod("getAddress")
+                val type = getType.invoke(routedDevice) as? Int ?: AudioDeviceInfo.TYPE_UNKNOWN
+                val address = (getAddress.invoke(routedDevice) as? String).orEmpty()
+                Pair(type, address)
+            } else {
+                null
+            }
         } catch (e: Exception) {
             Log.w(TAG, "Failed to get active media route", e)
             null
-        } ?: return null
+        } ?: Pair(AudioDeviceInfo.TYPE_UNKNOWN, "")
 
         val outputs = audioManager.getDevices(AudioManager.GET_DEVICES_OUTPUTS)
-        val routedAddress = routedDevice.address.orEmpty()
 
-        return outputs.firstOrNull { device ->
-            device.isSink &&
-                device.type == routedDevice.type &&
-                (routedAddress.isEmpty() || device.address == routedAddress)
-        } ?: outputs.firstOrNull { device ->
-            device.isSink && device.type == routedDevice.type
-        }.also { device ->
-            if (device == null) {
-                Log.w(
-                    TAG,
-                    "Unable to map active media route: " +
-                        "type=${routedDevice.type}, address=${routedDevice.address}"
-                )
+        return if (routedType != AudioDeviceInfo.TYPE_UNKNOWN) {
+            outputs.firstOrNull { device ->
+                device.isSink &&
+                    device.type == routedType &&
+                    (routedAddress.isEmpty() || device.address == routedAddress)
+            } ?: outputs.firstOrNull { device ->
+                device.isSink && device.type == routedType
             }
+        } else {
+            outputs.firstOrNull { it.isSink }
         }
     }
 
