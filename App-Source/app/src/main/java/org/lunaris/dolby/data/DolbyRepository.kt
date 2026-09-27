@@ -126,8 +126,19 @@ class DolbyRepository(private val context: Context) : AutoCloseable {
         if (isCallActive == active) return
         isCallActive = active
         if (active) {
-            DolbyConstants.dlog(TAG, "Call active: suspending Dolby effect")
-            dolbyEffect.dsOn = false
+            DolbyConstants.dlog(TAG, "Call active: Applying Voice Optimization Mode")
+            dolbyEffect.dsOn = true
+            val profile = dolbyEffect.profile
+            // Turn off spatializers and bass to prevent robotic voice/echoes
+            dolbyEffect.setDapParameter(DsParam.HEADPHONE_VIRTUALIZER, false, profile)
+            dolbyEffect.setDapParameter(DsParam.SPEAKER_VIRTUALIZER, false, profile)
+            dolbyEffect.setDapParameter(DsParam.STEREO_WIDENING_AMOUNT, 0, profile)
+            dolbyEffect.setDapParameter(DsParam.BASS_ENHANCER_ENABLE, false, profile)
+            // Enable Volume Leveler to normalize loud and quiet sounds (ear protection + boost)
+            dolbyEffect.setDapParameter(DsParam.VOLUME_LEVELER_ENABLE, true, profile)
+            // Enable Dialogue Enhancer for clear voice
+            dolbyEffect.setDapParameter(DsParam.DIALOGUE_ENHANCER_ENABLE, true, profile)
+            dolbyEffect.setDapParameter(DsParam.DIALOGUE_ENHANCER_AMOUNT, 3, profile)
         } else {
             DolbyConstants.dlog(TAG, "Call ended: restoring Dolby effect")
             applySavedState()
@@ -138,8 +149,7 @@ class DolbyRepository(private val context: Context) : AutoCloseable {
         checkEffect()
         val mode = audioManager.mode
         if (isCallActive || mode == AudioManager.MODE_IN_CALL || mode == AudioManager.MODE_IN_COMMUNICATION) {
-            DolbyConstants.dlog(TAG, "Call in progress, bypassing Dolby")
-            dolbyEffect.dsOn = false
+            DolbyConstants.dlog(TAG, "Call in progress, maintaining Voice Optimization Mode")
             return
         }
         val enabled = defaultPrefs.getBoolean(DolbyConstants.PREF_ENABLE, true)
