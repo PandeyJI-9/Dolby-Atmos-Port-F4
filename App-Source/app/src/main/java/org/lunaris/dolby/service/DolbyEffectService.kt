@@ -17,9 +17,6 @@ import android.media.AudioPlaybackConfiguration
 import android.os.Handler
 import android.content.SharedPreferences
 import android.os.IBinder
-import android.media.AudioManager
-import android.media.AudioRecordingConfiguration.AudioRecordingCallback
-import android.media.AudioRecordingConfiguration
 import android.util.Log
 import org.lunaris.dolby.DolbyConstants
 import org.lunaris.dolby.data.DeviceStateManager
@@ -40,7 +37,7 @@ class DolbyEffectService : Service() {
 
     @Suppress("DEPRECATION")
     private val recordingCallback = object : AudioManager.AudioRecordingCallback() {
-        override fun onRecordingConfigChanged(configs: MutableList<AudioRecordingConfiguration>?) {
+        override fun onRecordingConfigChanged(configs: List<AudioRecordingConfiguration>?) {
             val isRecording = configs?.isNotEmpty() == true
             repository.setCallActive(isRecording)
         }
@@ -90,7 +87,7 @@ class DolbyEffectService : Service() {
     }
 
     private val playbackCallback = object : AudioManager.AudioPlaybackCallback() {
-        override fun onPlaybackConfigChanged(configs: MutableList<AudioPlaybackConfiguration>?) {
+        override fun onPlaybackConfigChanged(configs: List<AudioPlaybackConfiguration>?) {
             val isActive = configs?.any { config ->
                 try {
                     val method = config.javaClass.getMethod("isActive")
