@@ -56,10 +56,10 @@ org.lunaris.dolby.app-appcompat-1.6.1-54 /root/.gradle/caches/8.14.3/transforms/
 org.lunaris.dolby.app-navigation-runtime-2.7.7-55 /root/.gradle/caches/8.14.3/transforms/ea3d9c8657297ad077618cab05ce0957/transformed/navigation-runtime-2.7.7/res
 org.lunaris.dolby.app-coordinatorlayout-1.1.0-56 /root/.gradle/caches/8.14.3/transforms/f19b2e85241e4cd1d60aee115b5b4352/transformed/coordinatorlayout-1.1.0/res
 org.lunaris.dolby.app-activity-ktx-1.8.2-57 /root/.gradle/caches/8.14.3/transforms/f3fcf402f9d381f21e52c957b56c75fb/transformed/activity-ktx-1.8.2/res
-org.lunaris.dolby.app-pngs-58 /workspace/calm-curie/LunarisDolbyApp/app/build/generated/res/pngs/debug
-org.lunaris.dolby.app-resValues-59 /workspace/calm-curie/LunarisDolbyApp/app/build/generated/res/resValues/debug
-org.lunaris.dolby.app-packageDebugResources-60 /workspace/calm-curie/LunarisDolbyApp/app/build/intermediates/incremental/debug/packageDebugResources/merged.dir
-org.lunaris.dolby.app-packageDebugResources-61 /workspace/calm-curie/LunarisDolbyApp/app/build/intermediates/incremental/debug/packageDebugResources/stripped.dir
-org.lunaris.dolby.app-merged_res-62 /workspace/calm-curie/LunarisDolbyApp/app/build/intermediates/merged_res/debug
-org.lunaris.dolby.app-debug-63 /workspace/calm-curie/LunarisDolbyApp/app/src/debug/res
-org.lunaris.dolby.app-main-64 /workspace/calm-curie/LunarisDolbyApp/app/src/main/res
+org.lunaris.dolby.app-pngs-58 /workspace/calm-curie/Dolby-Atmos-Port-F4/App-Source/app/build/generated/res/pngs/debug
+org.lunaris.dolby.app-resValues-59 /workspace/calm-curie/Dolby-Atmos-Port-F4/App-Source/app/build/generated/res/resValues/debug
+org.lunaris.dolby.app-packageDebugResources-60 /workspace/calm-curie/Dolby-Atmos-Port-F4/App-Source/app/build/intermediates/incremental/debug/packageDebugResources/merged.dir
+org.lunaris.dolby.app-packageDebugResources-61 /workspace/calm-curie/Dolby-Atmos-Port-F4/App-Source/app/build/intermediates/incremental/debug/packageDebugResources/stripped.dir
+org.lunaris.dolby.app-merged_res-62 /workspace/calm-curie/Dolby-Atmos-Port-F4/App-Source/app/build/intermediates/merged_res/debug
+org.lunaris.dolby.app-debug-63 /workspace/calm-curie/Dolby-Atmos-Port-F4/App-Source/app/src/debug/res
+org.lunaris.dolby.app-main-64 /workspace/calm-curie/Dolby-Atmos-Port-F4/App-Source/app/src/main/res

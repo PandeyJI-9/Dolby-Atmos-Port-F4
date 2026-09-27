@@ -1,9 +1,9 @@
 -- Merging decision tree log ---
 manifest
-ADDED from /workspace/calm-curie/LunarisDolbyApp/app/src/main/AndroidManifest.xml:7:1-110:12
-INJECTED from /workspace/calm-curie/LunarisDolbyApp/app/src/main/AndroidManifest.xml:7:1-110:12
-INJECTED from /workspace/calm-curie/LunarisDolbyApp/app/src/main/AndroidManifest.xml:7:1-110:12
-INJECTED from /workspace/calm-curie/LunarisDolbyApp/app/src/main/AndroidManifest.xml:7:1-110:12
+ADDED from /workspace/calm-curie/Dolby-Atmos-Port-F4/App-Source/app/src/main/AndroidManifest.xml:7:1-114:12
+INJECTED from /workspace/calm-curie/Dolby-Atmos-Port-F4/App-Source/app/src/main/AndroidManifest.xml:7:1-114:12
+INJECTED from /workspace/calm-curie/Dolby-Atmos-Port-F4/App-Source/app/src/main/AndroidManifest.xml:7:1-114:12
+INJECTED from /workspace/calm-curie/Dolby-Atmos-Port-F4/App-Source/app/src/main/AndroidManifest.xml:7:1-114:12
 MERGED from [androidx.navigation:navigation-common:2.7.7] /root/.gradle/caches/8.14.3/transforms/97379ba66829b95462cdf068b3a5ab40/transformed/navigation-common-2.7.7/AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.navigation:navigation-runtime:2.7.7] /root/.gradle/caches/8.14.3/transforms/ea3d9c8657297ad077618cab05ce0957/transformed/navigation-runtime-2.7.7/AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.navigation:navigation-common-ktx:2.7.7] /root/.gradle/caches/8.14.3/transforms/16d0d2354b66c3dad7ead964f42c6244/transformed/navigation-common-ktx-2.7.7/AndroidManifest.xml:2:1-7:12
@@ -78,45 +78,49 @@ MERGED from [androidx.documentfile:documentfile:1.0.0] /root/.gradle/caches/8.14
 MERGED from [androidx.localbroadcastmanager:localbroadcastmanager:1.0.0] /root/.gradle/caches/8.14.3/transforms/c265dbd775b2c7f27d9bd5cc2bb0dbc7/transformed/localbroadcastmanager-1.0.0/AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.print:print:1.0.0] /root/.gradle/caches/8.14.3/transforms/08d8610d10e59361ffe42b9650c4c3ec/transformed/print-1.0.0/AndroidManifest.xml:17:1-22:12
 	package
-		ADDED from /workspace/calm-curie/LunarisDolbyApp/app/src/main/AndroidManifest.xml:8:5-32
-		INJECTED from /workspace/calm-curie/LunarisDolbyApp/app/src/main/AndroidManifest.xml
+		ADDED from /workspace/calm-curie/Dolby-Atmos-Port-F4/App-Source/app/src/main/AndroidManifest.xml:8:5-32
+		INJECTED from /workspace/calm-curie/Dolby-Atmos-Port-F4/App-Source/app/src/main/AndroidManifest.xml
 	android:versionName
-		INJECTED from /workspace/calm-curie/LunarisDolbyApp/app/src/main/AndroidManifest.xml
+		INJECTED from /workspace/calm-curie/Dolby-Atmos-Port-F4/App-Source/app/src/main/AndroidManifest.xml
 	android:versionCode
-		INJECTED from /workspace/calm-curie/LunarisDolbyApp/app/src/main/AndroidManifest.xml
+		INJECTED from /workspace/calm-curie/Dolby-Atmos-Port-F4/App-Source/app/src/main/AndroidManifest.xml
 	xmlns:android
-		ADDED from /workspace/calm-curie/LunarisDolbyApp/app/src/main/AndroidManifest.xml:7:11-69
+		ADDED from /workspace/calm-curie/Dolby-Atmos-Port-F4/App-Source/app/src/main/AndroidManifest.xml:7:11-69
 uses-permission#android.permission.RECEIVE_BOOT_COMPLETED
-ADDED from /workspace/calm-curie/LunarisDolbyApp/app/src/main/AndroidManifest.xml:11:5-81
+ADDED from /workspace/calm-curie/Dolby-Atmos-Port-F4/App-Source/app/src/main/AndroidManifest.xml:11:5-81
 	android:name
-		ADDED from /workspace/calm-curie/LunarisDolbyApp/app/src/main/AndroidManifest.xml:11:22-78
+		ADDED from /workspace/calm-curie/Dolby-Atmos-Port-F4/App-Source/app/src/main/AndroidManifest.xml:11:22-78
 uses-permission#android.permission.MODIFY_AUDIO_SETTINGS
-ADDED from /workspace/calm-curie/LunarisDolbyApp/app/src/main/AndroidManifest.xml:12:5-80
+ADDED from /workspace/calm-curie/Dolby-Atmos-Port-F4/App-Source/app/src/main/AndroidManifest.xml:12:5-80
 	android:name
-		ADDED from /workspace/calm-curie/LunarisDolbyApp/app/src/main/AndroidManifest.xml:12:22-77
+		ADDED from /workspace/calm-curie/Dolby-Atmos-Port-F4/App-Source/app/src/main/AndroidManifest.xml:12:22-77
 uses-permission#android.permission.PACKAGE_USAGE_STATS
-ADDED from /workspace/calm-curie/LunarisDolbyApp/app/src/main/AndroidManifest.xml:13:5-78
+ADDED from /workspace/calm-curie/Dolby-Atmos-Port-F4/App-Source/app/src/main/AndroidManifest.xml:13:5-78
 	android:name
-		ADDED from /workspace/calm-curie/LunarisDolbyApp/app/src/main/AndroidManifest.xml:13:22-75
+		ADDED from /workspace/calm-curie/Dolby-Atmos-Port-F4/App-Source/app/src/main/AndroidManifest.xml:13:22-75
 uses-permission#android.permission.QUERY_ALL_PACKAGES
-ADDED from /workspace/calm-curie/LunarisDolbyApp/app/src/main/AndroidManifest.xml:14:5-77
+ADDED from /workspace/calm-curie/Dolby-Atmos-Port-F4/App-Source/app/src/main/AndroidManifest.xml:14:5-77
 	android:name
-		ADDED from /workspace/calm-curie/LunarisDolbyApp/app/src/main/AndroidManifest.xml:14:22-74
+		ADDED from /workspace/calm-curie/Dolby-Atmos-Port-F4/App-Source/app/src/main/AndroidManifest.xml:14:22-74
 uses-permission#android.permission.BIND_NOTIFICATION_LISTENER_SERVICE
-ADDED from /workspace/calm-curie/LunarisDolbyApp/app/src/main/AndroidManifest.xml:15:5-93
+ADDED from /workspace/calm-curie/Dolby-Atmos-Port-F4/App-Source/app/src/main/AndroidManifest.xml:15:5-93
 	android:name
-		ADDED from /workspace/calm-curie/LunarisDolbyApp/app/src/main/AndroidManifest.xml:15:22-90
+		ADDED from /workspace/calm-curie/Dolby-Atmos-Port-F4/App-Source/app/src/main/AndroidManifest.xml:15:22-90
 uses-permission#android.permission.INTERNET
-ADDED from /workspace/calm-curie/LunarisDolbyApp/app/src/main/AndroidManifest.xml:16:5-67
+ADDED from /workspace/calm-curie/Dolby-Atmos-Port-F4/App-Source/app/src/main/AndroidManifest.xml:16:5-67
 	android:name
-		ADDED from /workspace/calm-curie/LunarisDolbyApp/app/src/main/AndroidManifest.xml:16:22-64
+		ADDED from /workspace/calm-curie/Dolby-Atmos-Port-F4/App-Source/app/src/main/AndroidManifest.xml:16:22-64
 uses-permission#android.permission.ACCESS_NETWORK_STATE
-ADDED from /workspace/calm-curie/LunarisDolbyApp/app/src/main/AndroidManifest.xml:17:5-79
+ADDED from /workspace/calm-curie/Dolby-Atmos-Port-F4/App-Source/app/src/main/AndroidManifest.xml:17:5-79
 	android:name
-		ADDED from /workspace/calm-curie/LunarisDolbyApp/app/src/main/AndroidManifest.xml:17:22-76
+		ADDED from /workspace/calm-curie/Dolby-Atmos-Port-F4/App-Source/app/src/main/AndroidManifest.xml:17:22-76
+uses-permission#android.permission.READ_PHONE_STATE
+ADDED from /workspace/calm-curie/Dolby-Atmos-Port-F4/App-Source/app/src/main/AndroidManifest.xml:18:5-75
+	android:name
+		ADDED from /workspace/calm-curie/Dolby-Atmos-Port-F4/App-Source/app/src/main/AndroidManifest.xml:18:22-72
 application
-ADDED from /workspace/calm-curie/LunarisDolbyApp/app/src/main/AndroidManifest.xml:19:5-109:19
-INJECTED from /workspace/calm-curie/LunarisDolbyApp/app/src/main/AndroidManifest.xml:19:5-109:19
+ADDED from /workspace/calm-curie/Dolby-Atmos-Port-F4/App-Source/app/src/main/AndroidManifest.xml:20:5-113:19
+INJECTED from /workspace/calm-curie/Dolby-Atmos-Port-F4/App-Source/app/src/main/AndroidManifest.xml:20:5-113:19
 MERGED from [com.google.android.material:material:1.11.0] /root/.gradle/caches/8.14.3/transforms/2b186444a86bfce1df3df2d6101eb604/transformed/material-1.11.0/AndroidManifest.xml:22:5-20
 MERGED from [com.google.android.material:material:1.11.0] /root/.gradle/caches/8.14.3/transforms/2b186444a86bfce1df3df2d6101eb604/transformed/material-1.11.0/AndroidManifest.xml:22:5-20
 MERGED from [androidx.constraintlayout:constraintlayout:2.0.1] /root/.gradle/caches/8.14.3/transforms/2f1b59141c979b30afdcc3238606cf88/transformed/constraintlayout-2.0.1/AndroidManifest.xml:9:5-20
@@ -134,177 +138,183 @@ MERGED from [androidx.profileinstaller:profileinstaller:1.3.0] /root/.gradle/cac
 MERGED from [androidx.startup:startup-runtime:1.1.1] /root/.gradle/caches/8.14.3/transforms/8de61fcf990607c62e12d899820d0ce2/transformed/startup-runtime-1.1.1/AndroidManifest.xml:25:5-31:19
 MERGED from [androidx.startup:startup-runtime:1.1.1] /root/.gradle/caches/8.14.3/transforms/8de61fcf990607c62e12d899820d0ce2/transformed/startup-runtime-1.1.1/AndroidManifest.xml:25:5-31:19
 	android:extractNativeLibs
-		INJECTED from /workspace/calm-curie/LunarisDolbyApp/app/src/main/AndroidManifest.xml
+		INJECTED from /workspace/calm-curie/Dolby-Atmos-Port-F4/App-Source/app/src/main/AndroidManifest.xml
 	android:appComponentFactory
 		ADDED from [androidx.core:core:1.12.0] /root/.gradle/caches/8.14.3/transforms/c4049fdfff0b432e5fb4e4643202a216/transformed/core-1.12.0/AndroidManifest.xml:28:18-86
 	android:label
-		ADDED from /workspace/calm-curie/LunarisDolbyApp/app/src/main/AndroidManifest.xml:22:9-44
+		ADDED from /workspace/calm-curie/Dolby-Atmos-Port-F4/App-Source/app/src/main/AndroidManifest.xml:23:9-44
 	android:defaultToDeviceProtectedStorage
-		ADDED from /workspace/calm-curie/LunarisDolbyApp/app/src/main/AndroidManifest.xml:26:9-55
+		ADDED from /workspace/calm-curie/Dolby-Atmos-Port-F4/App-Source/app/src/main/AndroidManifest.xml:27:9-55
 	android:persistent
-		ADDED from /workspace/calm-curie/LunarisDolbyApp/app/src/main/AndroidManifest.xml:24:9-34
+		ADDED from /workspace/calm-curie/Dolby-Atmos-Port-F4/App-Source/app/src/main/AndroidManifest.xml:25:9-34
 	android:icon
-		ADDED from /workspace/calm-curie/LunarisDolbyApp/app/src/main/AndroidManifest.xml:20:9-43
+		ADDED from /workspace/calm-curie/Dolby-Atmos-Port-F4/App-Source/app/src/main/AndroidManifest.xml:21:9-43
 	android:allowBackup
-		ADDED from /workspace/calm-curie/LunarisDolbyApp/app/src/main/AndroidManifest.xml:21:9-36
+		ADDED from /workspace/calm-curie/Dolby-Atmos-Port-F4/App-Source/app/src/main/AndroidManifest.xml:22:9-36
 	android:theme
-		ADDED from /workspace/calm-curie/LunarisDolbyApp/app/src/main/AndroidManifest.xml:27:9-43
+		ADDED from /workspace/calm-curie/Dolby-Atmos-Port-F4/App-Source/app/src/main/AndroidManifest.xml:28:9-43
 	android:enableOnBackInvokedCallback
-		ADDED from /workspace/calm-curie/LunarisDolbyApp/app/src/main/AndroidManifest.xml:23:9-51
+		ADDED from /workspace/calm-curie/Dolby-Atmos-Port-F4/App-Source/app/src/main/AndroidManifest.xml:24:9-51
 	android:directBootAware
-		ADDED from /workspace/calm-curie/LunarisDolbyApp/app/src/main/AndroidManifest.xml:25:9-39
+		ADDED from /workspace/calm-curie/Dolby-Atmos-Port-F4/App-Source/app/src/main/AndroidManifest.xml:26:9-39
 receiver#org.lunaris.dolby.BootCompletedReceiver
-ADDED from /workspace/calm-curie/LunarisDolbyApp/app/src/main/AndroidManifest.xml:29:9-36:20
+ADDED from /workspace/calm-curie/Dolby-Atmos-Port-F4/App-Source/app/src/main/AndroidManifest.xml:30:9-37:20
 	android:exported
-		ADDED from /workspace/calm-curie/LunarisDolbyApp/app/src/main/AndroidManifest.xml:31:13-36
+		ADDED from /workspace/calm-curie/Dolby-Atmos-Port-F4/App-Source/app/src/main/AndroidManifest.xml:32:13-36
 	android:name
-		ADDED from /workspace/calm-curie/LunarisDolbyApp/app/src/main/AndroidManifest.xml:30:13-50
+		ADDED from /workspace/calm-curie/Dolby-Atmos-Port-F4/App-Source/app/src/main/AndroidManifest.xml:31:13-50
 intent-filter#action:name:android.intent.action.BOOT_COMPLETED+action:name:android.intent.action.LOCKED_BOOT_COMPLETED
-ADDED from /workspace/calm-curie/LunarisDolbyApp/app/src/main/AndroidManifest.xml:32:13-35:29
+ADDED from /workspace/calm-curie/Dolby-Atmos-Port-F4/App-Source/app/src/main/AndroidManifest.xml:33:13-36:29
 	android:priority
-		ADDED from /workspace/calm-curie/LunarisDolbyApp/app/src/main/AndroidManifest.xml:32:28-51
+		ADDED from /workspace/calm-curie/Dolby-Atmos-Port-F4/App-Source/app/src/main/AndroidManifest.xml:33:28-51
 action#android.intent.action.BOOT_COMPLETED
-ADDED from /workspace/calm-curie/LunarisDolbyApp/app/src/main/AndroidManifest.xml:33:17-79
+ADDED from /workspace/calm-curie/Dolby-Atmos-Port-F4/App-Source/app/src/main/AndroidManifest.xml:34:17-79
 	android:name
-		ADDED from /workspace/calm-curie/LunarisDolbyApp/app/src/main/AndroidManifest.xml:33:25-76
+		ADDED from /workspace/calm-curie/Dolby-Atmos-Port-F4/App-Source/app/src/main/AndroidManifest.xml:34:25-76
 action#android.intent.action.LOCKED_BOOT_COMPLETED
-ADDED from /workspace/calm-curie/LunarisDolbyApp/app/src/main/AndroidManifest.xml:34:17-86
+ADDED from /workspace/calm-curie/Dolby-Atmos-Port-F4/App-Source/app/src/main/AndroidManifest.xml:35:17-86
 	android:name
-		ADDED from /workspace/calm-curie/LunarisDolbyApp/app/src/main/AndroidManifest.xml:34:25-83
+		ADDED from /workspace/calm-curie/Dolby-Atmos-Port-F4/App-Source/app/src/main/AndroidManifest.xml:35:25-83
 activity#org.lunaris.dolby.ui.DolbyActivity
-ADDED from /workspace/calm-curie/LunarisDolbyApp/app/src/main/AndroidManifest.xml:38:9-59:20
+ADDED from /workspace/calm-curie/Dolby-Atmos-Port-F4/App-Source/app/src/main/AndroidManifest.xml:39:9-60:20
 	android:label
-		ADDED from /workspace/calm-curie/LunarisDolbyApp/app/src/main/AndroidManifest.xml:40:13-48
+		ADDED from /workspace/calm-curie/Dolby-Atmos-Port-F4/App-Source/app/src/main/AndroidManifest.xml:41:13-48
 	android:exported
-		ADDED from /workspace/calm-curie/LunarisDolbyApp/app/src/main/AndroidManifest.xml:41:13-36
+		ADDED from /workspace/calm-curie/Dolby-Atmos-Port-F4/App-Source/app/src/main/AndroidManifest.xml:42:13-36
 	android:name
-		ADDED from /workspace/calm-curie/LunarisDolbyApp/app/src/main/AndroidManifest.xml:39:13-45
+		ADDED from /workspace/calm-curie/Dolby-Atmos-Port-F4/App-Source/app/src/main/AndroidManifest.xml:40:13-45
 intent-filter#action:name:android.service.quicksettings.action.QS_TILE_PREFERENCES+action:name:com.android.settings.action.IA_SETTINGS
-ADDED from /workspace/calm-curie/LunarisDolbyApp/app/src/main/AndroidManifest.xml:42:13-45:29
+ADDED from /workspace/calm-curie/Dolby-Atmos-Port-F4/App-Source/app/src/main/AndroidManifest.xml:43:13-46:29
 action#com.android.settings.action.IA_SETTINGS
-ADDED from /workspace/calm-curie/LunarisDolbyApp/app/src/main/AndroidManifest.xml:43:17-82
+ADDED from /workspace/calm-curie/Dolby-Atmos-Port-F4/App-Source/app/src/main/AndroidManifest.xml:44:17-82
 	android:name
-		ADDED from /workspace/calm-curie/LunarisDolbyApp/app/src/main/AndroidManifest.xml:43:25-79
+		ADDED from /workspace/calm-curie/Dolby-Atmos-Port-F4/App-Source/app/src/main/AndroidManifest.xml:44:25-79
 action#android.service.quicksettings.action.QS_TILE_PREFERENCES
-ADDED from /workspace/calm-curie/LunarisDolbyApp/app/src/main/AndroidManifest.xml:44:17-98
+ADDED from /workspace/calm-curie/Dolby-Atmos-Port-F4/App-Source/app/src/main/AndroidManifest.xml:45:17-98
 	android:name
-		ADDED from /workspace/calm-curie/LunarisDolbyApp/app/src/main/AndroidManifest.xml:44:25-96
+		ADDED from /workspace/calm-curie/Dolby-Atmos-Port-F4/App-Source/app/src/main/AndroidManifest.xml:45:25-96
 intent-filter#action:name:android.media.action.DISPLAY_AUDIO_EFFECT_CONTROL_PANEL+category:name:android.intent.category.CATEGORY_CONTENT_MUSIC+category:name:android.intent.category.DEFAULT
-ADDED from /workspace/calm-curie/LunarisDolbyApp/app/src/main/AndroidManifest.xml:46:13-50:29
+ADDED from /workspace/calm-curie/Dolby-Atmos-Port-F4/App-Source/app/src/main/AndroidManifest.xml:47:13-51:29
 action#android.media.action.DISPLAY_AUDIO_EFFECT_CONTROL_PANEL
-ADDED from /workspace/calm-curie/LunarisDolbyApp/app/src/main/AndroidManifest.xml:47:17-98
+ADDED from /workspace/calm-curie/Dolby-Atmos-Port-F4/App-Source/app/src/main/AndroidManifest.xml:48:17-98
 	android:name
-		ADDED from /workspace/calm-curie/LunarisDolbyApp/app/src/main/AndroidManifest.xml:47:25-95
+		ADDED from /workspace/calm-curie/Dolby-Atmos-Port-F4/App-Source/app/src/main/AndroidManifest.xml:48:25-95
 category#android.intent.category.DEFAULT
-ADDED from /workspace/calm-curie/LunarisDolbyApp/app/src/main/AndroidManifest.xml:48:17-76
+ADDED from /workspace/calm-curie/Dolby-Atmos-Port-F4/App-Source/app/src/main/AndroidManifest.xml:49:17-76
 	android:name
-		ADDED from /workspace/calm-curie/LunarisDolbyApp/app/src/main/AndroidManifest.xml:48:27-73
+		ADDED from /workspace/calm-curie/Dolby-Atmos-Port-F4/App-Source/app/src/main/AndroidManifest.xml:49:27-73
 category#android.intent.category.CATEGORY_CONTENT_MUSIC
-ADDED from /workspace/calm-curie/LunarisDolbyApp/app/src/main/AndroidManifest.xml:49:17-91
+ADDED from /workspace/calm-curie/Dolby-Atmos-Port-F4/App-Source/app/src/main/AndroidManifest.xml:50:17-91
 	android:name
-		ADDED from /workspace/calm-curie/LunarisDolbyApp/app/src/main/AndroidManifest.xml:49:27-88
+		ADDED from /workspace/calm-curie/Dolby-Atmos-Port-F4/App-Source/app/src/main/AndroidManifest.xml:50:27-88
 intent-filter#action:name:android.intent.action.MAIN+category:name:android.intent.category.LAUNCHER
-ADDED from /workspace/calm-curie/LunarisDolbyApp/app/src/main/AndroidManifest.xml:51:13-54:29
+ADDED from /workspace/calm-curie/Dolby-Atmos-Port-F4/App-Source/app/src/main/AndroidManifest.xml:52:13-55:29
 action#android.intent.action.MAIN
-ADDED from /workspace/calm-curie/LunarisDolbyApp/app/src/main/AndroidManifest.xml:52:17-68
+ADDED from /workspace/calm-curie/Dolby-Atmos-Port-F4/App-Source/app/src/main/AndroidManifest.xml:53:17-68
 	android:name
-		ADDED from /workspace/calm-curie/LunarisDolbyApp/app/src/main/AndroidManifest.xml:52:25-66
+		ADDED from /workspace/calm-curie/Dolby-Atmos-Port-F4/App-Source/app/src/main/AndroidManifest.xml:53:25-66
 category#android.intent.category.LAUNCHER
-ADDED from /workspace/calm-curie/LunarisDolbyApp/app/src/main/AndroidManifest.xml:53:17-76
+ADDED from /workspace/calm-curie/Dolby-Atmos-Port-F4/App-Source/app/src/main/AndroidManifest.xml:54:17-76
 	android:name
-		ADDED from /workspace/calm-curie/LunarisDolbyApp/app/src/main/AndroidManifest.xml:53:27-74
+		ADDED from /workspace/calm-curie/Dolby-Atmos-Port-F4/App-Source/app/src/main/AndroidManifest.xml:54:27-74
 meta-data#com.android.settings.category
-ADDED from /workspace/calm-curie/LunarisDolbyApp/app/src/main/AndroidManifest.xml:55:13-56:81
+ADDED from /workspace/calm-curie/Dolby-Atmos-Port-F4/App-Source/app/src/main/AndroidManifest.xml:56:13-57:81
 	android:value
-		ADDED from /workspace/calm-curie/LunarisDolbyApp/app/src/main/AndroidManifest.xml:56:24-78
+		ADDED from /workspace/calm-curie/Dolby-Atmos-Port-F4/App-Source/app/src/main/AndroidManifest.xml:57:24-78
 	android:name
-		ADDED from /workspace/calm-curie/LunarisDolbyApp/app/src/main/AndroidManifest.xml:55:24-68
+		ADDED from /workspace/calm-curie/Dolby-Atmos-Port-F4/App-Source/app/src/main/AndroidManifest.xml:56:24-68
 meta-data#com.android.settings.summary_uri
-ADDED from /workspace/calm-curie/LunarisDolbyApp/app/src/main/AndroidManifest.xml:57:13-58:84
+ADDED from /workspace/calm-curie/Dolby-Atmos-Port-F4/App-Source/app/src/main/AndroidManifest.xml:58:13-59:84
 	android:value
-		ADDED from /workspace/calm-curie/LunarisDolbyApp/app/src/main/AndroidManifest.xml:58:24-81
+		ADDED from /workspace/calm-curie/Dolby-Atmos-Port-F4/App-Source/app/src/main/AndroidManifest.xml:59:24-81
 	android:name
-		ADDED from /workspace/calm-curie/LunarisDolbyApp/app/src/main/AndroidManifest.xml:57:24-71
+		ADDED from /workspace/calm-curie/Dolby-Atmos-Port-F4/App-Source/app/src/main/AndroidManifest.xml:58:24-71
 provider#androidx.core.content.FileProvider
-ADDED from /workspace/calm-curie/LunarisDolbyApp/app/src/main/AndroidManifest.xml:61:9-69:20
+ADDED from /workspace/calm-curie/Dolby-Atmos-Port-F4/App-Source/app/src/main/AndroidManifest.xml:62:9-70:20
 	android:grantUriPermissions
-		ADDED from /workspace/calm-curie/LunarisDolbyApp/app/src/main/AndroidManifest.xml:65:13-47
+		ADDED from /workspace/calm-curie/Dolby-Atmos-Port-F4/App-Source/app/src/main/AndroidManifest.xml:66:13-47
 	android:authorities
-		ADDED from /workspace/calm-curie/LunarisDolbyApp/app/src/main/AndroidManifest.xml:63:13-65
+		ADDED from /workspace/calm-curie/Dolby-Atmos-Port-F4/App-Source/app/src/main/AndroidManifest.xml:64:13-65
 	android:exported
-		ADDED from /workspace/calm-curie/LunarisDolbyApp/app/src/main/AndroidManifest.xml:64:13-37
+		ADDED from /workspace/calm-curie/Dolby-Atmos-Port-F4/App-Source/app/src/main/AndroidManifest.xml:65:13-37
 	android:name
-		ADDED from /workspace/calm-curie/LunarisDolbyApp/app/src/main/AndroidManifest.xml:62:13-62
+		ADDED from /workspace/calm-curie/Dolby-Atmos-Port-F4/App-Source/app/src/main/AndroidManifest.xml:63:13-62
 meta-data#android.support.FILE_PROVIDER_PATHS
-ADDED from /workspace/calm-curie/LunarisDolbyApp/app/src/main/AndroidManifest.xml:66:13-68:54
+ADDED from /workspace/calm-curie/Dolby-Atmos-Port-F4/App-Source/app/src/main/AndroidManifest.xml:67:13-69:54
 	android:resource
-		ADDED from /workspace/calm-curie/LunarisDolbyApp/app/src/main/AndroidManifest.xml:68:17-51
+		ADDED from /workspace/calm-curie/Dolby-Atmos-Port-F4/App-Source/app/src/main/AndroidManifest.xml:69:17-51
 	android:name
-		ADDED from /workspace/calm-curie/LunarisDolbyApp/app/src/main/AndroidManifest.xml:67:17-67
+		ADDED from /workspace/calm-curie/Dolby-Atmos-Port-F4/App-Source/app/src/main/AndroidManifest.xml:68:17-67
 service#org.lunaris.dolby.tile.DolbyTileService
-ADDED from /workspace/calm-curie/LunarisDolbyApp/app/src/main/AndroidManifest.xml:71:9-80:19
+ADDED from /workspace/calm-curie/Dolby-Atmos-Port-F4/App-Source/app/src/main/AndroidManifest.xml:72:9-81:19
 	android:label
-		ADDED from /workspace/calm-curie/LunarisDolbyApp/app/src/main/AndroidManifest.xml:74:13-48
+		ADDED from /workspace/calm-curie/Dolby-Atmos-Port-F4/App-Source/app/src/main/AndroidManifest.xml:75:13-48
 	android:exported
-		ADDED from /workspace/calm-curie/LunarisDolbyApp/app/src/main/AndroidManifest.xml:76:13-36
+		ADDED from /workspace/calm-curie/Dolby-Atmos-Port-F4/App-Source/app/src/main/AndroidManifest.xml:77:13-36
 	android:permission
-		ADDED from /workspace/calm-curie/LunarisDolbyApp/app/src/main/AndroidManifest.xml:75:13-77
+		ADDED from /workspace/calm-curie/Dolby-Atmos-Port-F4/App-Source/app/src/main/AndroidManifest.xml:76:13-77
 	android:icon
-		ADDED from /workspace/calm-curie/LunarisDolbyApp/app/src/main/AndroidManifest.xml:73:13-49
+		ADDED from /workspace/calm-curie/Dolby-Atmos-Port-F4/App-Source/app/src/main/AndroidManifest.xml:74:13-49
 	android:name
-		ADDED from /workspace/calm-curie/LunarisDolbyApp/app/src/main/AndroidManifest.xml:72:13-50
+		ADDED from /workspace/calm-curie/Dolby-Atmos-Port-F4/App-Source/app/src/main/AndroidManifest.xml:73:13-50
 intent-filter#action:name:android.service.quicksettings.action.QS_TILE
-ADDED from /workspace/calm-curie/LunarisDolbyApp/app/src/main/AndroidManifest.xml:77:13-79:29
+ADDED from /workspace/calm-curie/Dolby-Atmos-Port-F4/App-Source/app/src/main/AndroidManifest.xml:78:13-80:29
 action#android.service.quicksettings.action.QS_TILE
-ADDED from /workspace/calm-curie/LunarisDolbyApp/app/src/main/AndroidManifest.xml:78:17-86
+ADDED from /workspace/calm-curie/Dolby-Atmos-Port-F4/App-Source/app/src/main/AndroidManifest.xml:79:17-86
 	android:name
-		ADDED from /workspace/calm-curie/LunarisDolbyApp/app/src/main/AndroidManifest.xml:78:25-84
+		ADDED from /workspace/calm-curie/Dolby-Atmos-Port-F4/App-Source/app/src/main/AndroidManifest.xml:79:25-84
 provider#org.lunaris.dolby.provider.SummaryProvider
-ADDED from /workspace/calm-curie/LunarisDolbyApp/app/src/main/AndroidManifest.xml:82:9-85:20
+ADDED from /workspace/calm-curie/Dolby-Atmos-Port-F4/App-Source/app/src/main/AndroidManifest.xml:83:9-86:20
 	android:authorities
-		ADDED from /workspace/calm-curie/LunarisDolbyApp/app/src/main/AndroidManifest.xml:84:13-60
+		ADDED from /workspace/calm-curie/Dolby-Atmos-Port-F4/App-Source/app/src/main/AndroidManifest.xml:85:13-60
 	android:name
-		ADDED from /workspace/calm-curie/LunarisDolbyApp/app/src/main/AndroidManifest.xml:83:13-53
+		ADDED from /workspace/calm-curie/Dolby-Atmos-Port-F4/App-Source/app/src/main/AndroidManifest.xml:84:13-53
 service#org.lunaris.dolby.service.AppProfileMonitorService
-ADDED from /workspace/calm-curie/LunarisDolbyApp/app/src/main/AndroidManifest.xml:87:9-90:38
+ADDED from /workspace/calm-curie/Dolby-Atmos-Port-F4/App-Source/app/src/main/AndroidManifest.xml:88:9-92:38
+	android:process
+		ADDED from /workspace/calm-curie/Dolby-Atmos-Port-F4/App-Source/app/src/main/AndroidManifest.xml:91:13-42
 	android:enabled
-		ADDED from /workspace/calm-curie/LunarisDolbyApp/app/src/main/AndroidManifest.xml:90:13-35
+		ADDED from /workspace/calm-curie/Dolby-Atmos-Port-F4/App-Source/app/src/main/AndroidManifest.xml:92:13-35
 	android:exported
-		ADDED from /workspace/calm-curie/LunarisDolbyApp/app/src/main/AndroidManifest.xml:89:13-37
+		ADDED from /workspace/calm-curie/Dolby-Atmos-Port-F4/App-Source/app/src/main/AndroidManifest.xml:90:13-37
 	android:name
-		ADDED from /workspace/calm-curie/LunarisDolbyApp/app/src/main/AndroidManifest.xml:88:13-61
+		ADDED from /workspace/calm-curie/Dolby-Atmos-Port-F4/App-Source/app/src/main/AndroidManifest.xml:89:13-61
 service#org.lunaris.dolby.service.DolbyNotificationListener
-ADDED from /workspace/calm-curie/LunarisDolbyApp/app/src/main/AndroidManifest.xml:92:9-101:19
+ADDED from /workspace/calm-curie/Dolby-Atmos-Port-F4/App-Source/app/src/main/AndroidManifest.xml:94:9-104:19
+	android:process
+		ADDED from /workspace/calm-curie/Dolby-Atmos-Port-F4/App-Source/app/src/main/AndroidManifest.xml:99:13-42
 	android:enabled
-		ADDED from /workspace/calm-curie/LunarisDolbyApp/app/src/main/AndroidManifest.xml:97:13-35
+		ADDED from /workspace/calm-curie/Dolby-Atmos-Port-F4/App-Source/app/src/main/AndroidManifest.xml:100:13-35
 	android:label
-		ADDED from /workspace/calm-curie/LunarisDolbyApp/app/src/main/AndroidManifest.xml:94:13-70
+		ADDED from /workspace/calm-curie/Dolby-Atmos-Port-F4/App-Source/app/src/main/AndroidManifest.xml:96:13-70
 	android:exported
-		ADDED from /workspace/calm-curie/LunarisDolbyApp/app/src/main/AndroidManifest.xml:96:13-36
+		ADDED from /workspace/calm-curie/Dolby-Atmos-Port-F4/App-Source/app/src/main/AndroidManifest.xml:98:13-36
 	android:permission
-		ADDED from /workspace/calm-curie/LunarisDolbyApp/app/src/main/AndroidManifest.xml:95:13-87
+		ADDED from /workspace/calm-curie/Dolby-Atmos-Port-F4/App-Source/app/src/main/AndroidManifest.xml:97:13-87
 	android:name
-		ADDED from /workspace/calm-curie/LunarisDolbyApp/app/src/main/AndroidManifest.xml:93:13-62
+		ADDED from /workspace/calm-curie/Dolby-Atmos-Port-F4/App-Source/app/src/main/AndroidManifest.xml:95:13-62
 intent-filter#action:name:android.service.notification.NotificationListenerService
-ADDED from /workspace/calm-curie/LunarisDolbyApp/app/src/main/AndroidManifest.xml:98:13-100:29
+ADDED from /workspace/calm-curie/Dolby-Atmos-Port-F4/App-Source/app/src/main/AndroidManifest.xml:101:13-103:29
 action#android.service.notification.NotificationListenerService
-ADDED from /workspace/calm-curie/LunarisDolbyApp/app/src/main/AndroidManifest.xml:99:17-99
+ADDED from /workspace/calm-curie/Dolby-Atmos-Port-F4/App-Source/app/src/main/AndroidManifest.xml:102:17-99
 	android:name
-		ADDED from /workspace/calm-curie/LunarisDolbyApp/app/src/main/AndroidManifest.xml:99:25-96
+		ADDED from /workspace/calm-curie/Dolby-Atmos-Port-F4/App-Source/app/src/main/AndroidManifest.xml:102:25-96
 service#org.lunaris.dolby.service.DolbyEffectService
-ADDED from /workspace/calm-curie/LunarisDolbyApp/app/src/main/AndroidManifest.xml:103:9-107:44
+ADDED from /workspace/calm-curie/Dolby-Atmos-Port-F4/App-Source/app/src/main/AndroidManifest.xml:106:9-111:44
+	android:process
+		ADDED from /workspace/calm-curie/Dolby-Atmos-Port-F4/App-Source/app/src/main/AndroidManifest.xml:110:13-42
 	android:enabled
-		ADDED from /workspace/calm-curie/LunarisDolbyApp/app/src/main/AndroidManifest.xml:106:13-35
+		ADDED from /workspace/calm-curie/Dolby-Atmos-Port-F4/App-Source/app/src/main/AndroidManifest.xml:109:13-35
 	android:exported
-		ADDED from /workspace/calm-curie/LunarisDolbyApp/app/src/main/AndroidManifest.xml:105:13-37
+		ADDED from /workspace/calm-curie/Dolby-Atmos-Port-F4/App-Source/app/src/main/AndroidManifest.xml:108:13-37
 	android:stopWithTask
-		ADDED from /workspace/calm-curie/LunarisDolbyApp/app/src/main/AndroidManifest.xml:107:13-41
+		ADDED from /workspace/calm-curie/Dolby-Atmos-Port-F4/App-Source/app/src/main/AndroidManifest.xml:111:13-41
 	android:name
-		ADDED from /workspace/calm-curie/LunarisDolbyApp/app/src/main/AndroidManifest.xml:104:13-55
+		ADDED from /workspace/calm-curie/Dolby-Atmos-Port-F4/App-Source/app/src/main/AndroidManifest.xml:107:13-55
 uses-sdk
-INJECTED from /workspace/calm-curie/LunarisDolbyApp/app/src/main/AndroidManifest.xml reason: use-sdk injection requested
-INJECTED from /workspace/calm-curie/LunarisDolbyApp/app/src/main/AndroidManifest.xml
-INJECTED from /workspace/calm-curie/LunarisDolbyApp/app/src/main/AndroidManifest.xml
+INJECTED from /workspace/calm-curie/Dolby-Atmos-Port-F4/App-Source/app/src/main/AndroidManifest.xml reason: use-sdk injection requested
+INJECTED from /workspace/calm-curie/Dolby-Atmos-Port-F4/App-Source/app/src/main/AndroidManifest.xml
+INJECTED from /workspace/calm-curie/Dolby-Atmos-Port-F4/App-Source/app/src/main/AndroidManifest.xml
 MERGED from [androidx.navigation:navigation-common:2.7.7] /root/.gradle/caches/8.14.3/transforms/97379ba66829b95462cdf068b3a5ab40/transformed/navigation-common-2.7.7/AndroidManifest.xml:20:5-44
 MERGED from [androidx.navigation:navigation-common:2.7.7] /root/.gradle/caches/8.14.3/transforms/97379ba66829b95462cdf068b3a5ab40/transformed/navigation-common-2.7.7/AndroidManifest.xml:20:5-44
 MERGED from [androidx.navigation:navigation-runtime:2.7.7] /root/.gradle/caches/8.14.3/transforms/ea3d9c8657297ad077618cab05ce0957/transformed/navigation-runtime-2.7.7/AndroidManifest.xml:20:5-44
@@ -452,9 +462,9 @@ MERGED from [androidx.localbroadcastmanager:localbroadcastmanager:1.0.0] /root/.
 MERGED from [androidx.print:print:1.0.0] /root/.gradle/caches/8.14.3/transforms/08d8610d10e59361ffe42b9650c4c3ec/transformed/print-1.0.0/AndroidManifest.xml:20:5-44
 MERGED from [androidx.print:print:1.0.0] /root/.gradle/caches/8.14.3/transforms/08d8610d10e59361ffe42b9650c4c3ec/transformed/print-1.0.0/AndroidManifest.xml:20:5-44
 	android:targetSdkVersion
-		INJECTED from /workspace/calm-curie/LunarisDolbyApp/app/src/main/AndroidManifest.xml
+		INJECTED from /workspace/calm-curie/Dolby-Atmos-Port-F4/App-Source/app/src/main/AndroidManifest.xml
 	android:minSdkVersion
-		INJECTED from /workspace/calm-curie/LunarisDolbyApp/app/src/main/AndroidManifest.xml
+		INJECTED from /workspace/calm-curie/Dolby-Atmos-Port-F4/App-Source/app/src/main/AndroidManifest.xml
 provider#androidx.startup.InitializationProvider
 ADDED from [androidx.emoji2:emoji2:1.3.0] /root/.gradle/caches/8.14.3/transforms/9420259120c0bd8962fd9902d0cceecb/transformed/emoji2-1.3.0/AndroidManifest.xml:24:9-32:20
 MERGED from [androidx.lifecycle:lifecycle-process:2.7.0] /root/.gradle/caches/8.14.3/transforms/56c6df5340552a2088f65c241e7cc543/transformed/lifecycle-process-2.7.0/AndroidManifest.xml:24:9-32:20

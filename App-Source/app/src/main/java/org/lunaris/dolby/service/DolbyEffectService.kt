@@ -12,12 +12,14 @@ import android.media.AudioAttributes
 import android.media.AudioDeviceCallback
 import android.media.AudioDeviceInfo
 import android.media.AudioManager
+import android.media.AudioRecordingConfiguration
 import android.media.AudioPlaybackConfiguration
 import android.os.Handler
 import android.content.SharedPreferences
 import android.os.IBinder
-import android.telephony.PhoneStateListener
-import android.telephony.TelephonyManager
+import android.media.AudioManager
+import android.media.AudioRecordingConfiguration.AudioRecordingCallback
+import android.media.AudioRecordingConfiguration
 import android.util.Log
 import org.lunaris.dolby.DolbyConstants
 import org.lunaris.dolby.data.DeviceStateManager
@@ -26,7 +28,6 @@ import org.lunaris.dolby.data.DolbyRepository
 class DolbyEffectService : Service() {
 
     private val audioManager by lazy { getSystemService(AudioManager::class.java) }
-    private val telephonyManager by lazy { getSystemService(Context.TELEPHONY_SERVICE) as TelephonyManager }
     private val dolbyPrefs: SharedPreferences by lazy {
         getSharedPreferences("dolby_prefs", Context.MODE_PRIVATE)
     }
@@ -38,20 +39,10 @@ class DolbyEffectService : Service() {
     private var previousActiveDevice: AudioDeviceInfo? = null
 
     @Suppress("DEPRECATION")
-    private val phoneStateListener = object : PhoneStateListener() {
-        override fun onCallStateChanged(state: Int, phoneNumber: String?) {
-            super.onCallStateChanged(state, phoneNumber)
-            when (state) {
-                TelephonyManager.CALL_STATE_RINGING,
-                TelephonyManager.CALL_STATE_OFFHOOK -> {
-                    Log.d(TAG, "Call active, suspending Dolby effect")
-                    repository.setCallActive(true)
-                }
-                TelephonyManager.CALL_STATE_IDLE -> {
-                    Log.d(TAG, "Call idle, restoring Dolby effect")
-                    repository.setCallActive(false)
-                }
-            }
+    private val recordingCallback = object : AudioManager.AudioRecordingCallback() {
+        override fun onRecordingConfigChanged(configs: MutableList<AudioRecordingConfiguration>?) {
+            val isRecording = configs?.isNotEmpty() == true
+            repository.setCallActive(isRecording)
         }
     }
 
@@ -135,12 +126,7 @@ class DolbyEffectService : Service() {
         audioManager.registerAudioDeviceCallback(audioDeviceCallback, handler)
         audioManager.registerAudioPlaybackCallback(playbackCallback, handler)
 
-        try {
-            @Suppress("DEPRECATION")
-            telephonyManager.listen(phoneStateListener, PhoneStateListener.LISTEN_CALL_STATE)
-        } catch (e: Exception) {
-            Log.w(TAG, "Failed to register phone state listener", e)
-        }
+        audioManager.registerAudioRecordingCallback(recordingCallback, handler)
 
         try {
             contentResolver.registerContentObserver(
@@ -245,9 +231,8 @@ class DolbyEffectService : Service() {
         }
         audioManager.unregisterAudioDeviceCallback(audioDeviceCallback)
         audioManager.unregisterAudioPlaybackCallback(playbackCallback)
+        audioManager.unregisterAudioRecordingCallback(recordingCallback)
         try {
-            @Suppress("DEPRECATION")
-            telephonyManager.listen(phoneStateListener, PhoneStateListener.LISTEN_NONE)
             contentResolver.unregisterContentObserver(systemSettingsObserver)
         } catch (_: Exception) {}
         handler.removeCallbacksAndMessages(null)
