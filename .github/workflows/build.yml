@@ -31,17 +31,17 @@ jobs:
       working-directory: ./App-Source
 
     - name: Rename APK
-      run: mv app/build/outputs/apk/debug/app-debug.apk LunarisDolby-v1.0.apk
+      run: mv app/build/outputs/apk/debug/app-debug.apk LunarisDolby-v2.0.apk
       working-directory: ./App-Source
 
     - name: Upload to Release
       uses: softprops/action-gh-release@v2
       with:
-        tag_name: "v1.0"
-        name: "Dolby Atmos Poco F4 (HyperOS 3) Initial Release"
+        tag_name: "v2.0"
+        name: "Lunaris Dolby v2.0 (Zero-RAM & Smart Mic Bypass)"
         files: |
-          App-Source/LunarisDolby-v1.0.apk
+          App-Source/LunarisDolby-v2.0.apk
           Magisk-Module/Dolby-Atmos-PocoF4-HyperOS3.zip
-        body: "- 🚀 **Magisk Module**: Fully working Dolby Atmos hardware fix.\n- 📱 **Dolby App**: Modified standalone control app."
+        body: "- 🚀 **Zero-RAM Architecture**: App completely isolated for 0 background drain.\n- 🎙️ **Smart Mic Bypass**: No more robotic/bangar sounds on calls or BGMI.\n- 🐛 **UI Fixes**: 120Hz smooth sliders and profile fixes."
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
