@@ -16,6 +16,8 @@ import android.media.AudioPlaybackConfiguration
 import android.os.Handler
 import android.content.SharedPreferences
 import android.os.IBinder
+import android.telephony.PhoneStateListener
+import android.telephony.TelephonyManager
 import android.util.Log
 import org.lunaris.dolby.DolbyConstants
 import org.lunaris.dolby.data.DeviceStateManager
@@ -24,6 +26,7 @@ import org.lunaris.dolby.data.DolbyRepository
 class DolbyEffectService : Service() {
 
     private val audioManager by lazy { getSystemService(AudioManager::class.java) }
+    private val telephonyManager by lazy { getSystemService(Context.TELEPHONY_SERVICE) as TelephonyManager }
     private val dolbyPrefs: SharedPreferences by lazy {
         getSharedPreferences("dolby_prefs", Context.MODE_PRIVATE)
     }
@@ -33,6 +36,48 @@ class DolbyEffectService : Service() {
     private lateinit var repository: DolbyRepository
     private lateinit var deviceStateManager: DeviceStateManager
     private var previousActiveDevice: AudioDeviceInfo? = null
+
+    @Suppress("DEPRECATION")
+    private val phoneStateListener = object : PhoneStateListener() {
+        override fun onCallStateChanged(state: Int, phoneNumber: String?) {
+            super.onCallStateChanged(state, phoneNumber)
+            when (state) {
+                TelephonyManager.CALL_STATE_RINGING,
+                TelephonyManager.CALL_STATE_OFFHOOK -> {
+                    Log.d(TAG, "Call active, suspending Dolby effect")
+                    repository.setCallActive(true)
+                }
+                TelephonyManager.CALL_STATE_IDLE -> {
+                    Log.d(TAG, "Call idle, restoring Dolby effect")
+                    repository.setCallActive(false)
+                }
+            }
+        }
+    }
+
+    private val systemSettingsObserver = object : android.database.ContentObserver(handler) {
+        override fun onChange(selfChange: Boolean, uri: android.net.Uri?) {
+            super.onChange(selfChange, uri)
+            syncWithSystemSettings()
+        }
+    }
+
+    private fun syncWithSystemSettings() {
+        try {
+            val dolbyOpen = android.provider.Settings.System.getInt(contentResolver, "dolby_open", -1)
+            val v2Sound = android.provider.Settings.System.getInt(contentResolver, "v2_sound_effect", -1)
+            val sysVal = if (dolbyOpen != -1) dolbyOpen else v2Sound
+            if (sysVal != -1) {
+                val shouldBeEnabled = sysVal == 1
+                if (repository.getDolbyEnabled() != shouldBeEnabled) {
+                    Log.d(TAG, "Syncing with HyperOS system QS tile: enabled=$shouldBeEnabled")
+                    repository.setDolbyEnabled(shouldBeEnabled)
+                }
+            }
+        } catch (e: Exception) {
+            Log.w(TAG, "Failed to sync system settings: ${e.message}")
+        }
+    }
 
     private val audioDeviceCallback = object : AudioDeviceCallback() {
         override fun onAudioDevicesAdded(addedDevices: Array<AudioDeviceInfo>) {
@@ -89,6 +134,29 @@ class DolbyEffectService : Service() {
 
         audioManager.registerAudioDeviceCallback(audioDeviceCallback, handler)
         audioManager.registerAudioPlaybackCallback(playbackCallback, handler)
+
+        try {
+            @Suppress("DEPRECATION")
+            telephonyManager.listen(phoneStateListener, PhoneStateListener.LISTEN_CALL_STATE)
+        } catch (e: Exception) {
+            Log.w(TAG, "Failed to register phone state listener", e)
+        }
+
+        try {
+            contentResolver.registerContentObserver(
+                android.provider.Settings.System.getUriFor("dolby_open"),
+                false,
+                systemSettingsObserver
+            )
+            contentResolver.registerContentObserver(
+                android.provider.Settings.System.getUriFor("v2_sound_effect"),
+                false,
+                systemSettingsObserver
+            )
+        } catch (e: Exception) {
+            Log.w(TAG, "Failed to register system settings observer", e)
+        }
+
         Log.d(TAG, "Dolby effect service created")
     }
 
@@ -177,6 +245,11 @@ class DolbyEffectService : Service() {
         }
         audioManager.unregisterAudioDeviceCallback(audioDeviceCallback)
         audioManager.unregisterAudioPlaybackCallback(playbackCallback)
+        try {
+            @Suppress("DEPRECATION")
+            telephonyManager.listen(phoneStateListener, PhoneStateListener.LISTEN_NONE)
+            contentResolver.unregisterContentObserver(systemSettingsObserver)
+        } catch (_: Exception) {}
         handler.removeCallbacksAndMessages(null)
         Log.d(TAG, "Dolby effect service destroyed")
     }

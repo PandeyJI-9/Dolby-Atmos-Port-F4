@@ -120,10 +120,24 @@ class DolbyRepository(private val context: Context) : AutoCloseable {
         }
     }
 
+    private var isCallActive = false
+
+    fun setCallActive(active: Boolean) {
+        if (isCallActive == active) return
+        isCallActive = active
+        if (active) {
+            DolbyConstants.dlog(TAG, "Call active: suspending Dolby effect")
+            dolbyEffect.dsOn = false
+        } else {
+            DolbyConstants.dlog(TAG, "Call ended: restoring Dolby effect")
+            applySavedState()
+        }
+    }
+
     fun applySavedState() {
         checkEffect()
         val mode = audioManager.mode
-        if (mode == AudioManager.MODE_IN_CALL || mode == AudioManager.MODE_IN_COMMUNICATION) {
+        if (isCallActive || mode == AudioManager.MODE_IN_CALL || mode == AudioManager.MODE_IN_COMMUNICATION) {
             DolbyConstants.dlog(TAG, "Call in progress, bypassing Dolby")
             dolbyEffect.dsOn = false
             return
@@ -181,6 +195,13 @@ class DolbyRepository(private val context: Context) : AutoCloseable {
             checkEffect()
             dolbyEffect.dsOn = enabled
             defaultPrefs.edit().putBoolean(DolbyConstants.PREF_ENABLE, enabled).apply()
+            try {
+                android.provider.Settings.System.putInt(
+                    context.contentResolver,
+                    "dolby_open",
+                    if (enabled) 1 else 0
+                )
+            } catch (_: Exception) {}
         } catch (e: Exception) {
             DolbyConstants.dlog(TAG, "Error setting Dolby enabled: ${e.message}")
         }

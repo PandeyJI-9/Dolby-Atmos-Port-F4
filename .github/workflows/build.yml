@@ -34,14 +34,32 @@ jobs:
       run: mv app/build/outputs/apk/debug/app-debug.apk LunarisDolby-v2.0.apk
       working-directory: ./App-Source
 
+    - name: Package Magisk Module
+      run: |
+        sudo apt-get install -y zip
+        cd Magisk-Module
+        rm -f Dolby-Atmos-PocoF4-HyperOS3.zip
+        zip -r -9 Dolby-Atmos-PocoF4-HyperOS3.zip . -x "*.git*" "Dolby-Atmos-PocoF4-HyperOS3.zip"
+        cd ..
+
     - name: Upload to Release
       uses: softprops/action-gh-release@v2
       with:
         tag_name: "v2.0"
-        name: "Lunaris Dolby v2.0 (Zero-RAM & Smart Mic Bypass)"
+        name: "Lunaris Dolby v2.0 (Ultimate Edition)"
         files: |
           App-Source/LunarisDolby-v2.0.apk
           Magisk-Module/Dolby-Atmos-PocoF4-HyperOS3.zip
-        body: "- 🚀 **Zero-RAM Architecture**: App completely isolated for 0 background drain.\n- 🎙️ **Smart Mic Bypass**: No more robotic/bangar sounds on calls or BGMI.\n- 🐛 **UI Fixes**: 120Hz smooth sliders and profile fixes."
+        body: |
+          # 🚀 Lunaris Dolby v2.0 - Ultimate Edition
+          
+          ### 🎧 Flagship Audio Upgrades:
+          - **Smart Mic & Call Bypass**: Auto-suspends Dolby during cellular calls & WhatsApp/VoIP/BGMI voice chats, completely eliminating robotic distortion and echo.
+          - **Hardware Volume Leveler Fix**: Configured DAX 3.3 hardware leveler amount to Level 7 across all profiles in `dax-default.xml`.
+          - **HyperOS Native QS Tile Sync**: Bidirectional real-time sync with HyperOS Control Center Dolby tile (`dolby_open` & `v2_sound_effect`).
+          - **Zero-RAM Isolated Core**: Frontend UI terminates on exit; background engine isolated to lightweight `:dolby_core`.
+          - **AutoEQ Integration**: Built-in access to 5000+ headphone & IEM profiles with mathematical frequency interpolation.
+          - **Smooth 120Hz Sliders**: Eliminated JNI flooding during slider dragging for zero stutter.
+          - **Per-App Profile Automation**: Auto-switches profiles per application.
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

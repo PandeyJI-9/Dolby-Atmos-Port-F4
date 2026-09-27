@@ -82,7 +82,7 @@ fun CreditsDialog(
     val mainContributors = listOf(
         Contributor(
             name = "PandeyJi",
-            githubUsername = "pandey_ji_8",
+            githubUsername = "PandeyJI-9",
             contribution = "Modified App & Dolby Logic",
             isHighlighted = true
         ),
