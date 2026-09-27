@@ -121,7 +121,13 @@ class DolbyRepository(private val context: Context) : AutoCloseable {
     }
 
     fun applySavedState() {
-    checkEffect()
+        checkEffect()
+        val mode = audioManager.mode
+        if (mode == AudioManager.MODE_IN_CALL || mode == AudioManager.MODE_IN_COMMUNICATION) {
+            DolbyConstants.dlog(TAG, "Call in progress, bypassing Dolby")
+            dolbyEffect.dsOn = false
+            return
+        }
         val enabled = defaultPrefs.getBoolean(DolbyConstants.PREF_ENABLE, true)
         dolbyEffect.dsOn = enabled
         if (enabled) {

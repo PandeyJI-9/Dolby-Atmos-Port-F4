@@ -87,6 +87,7 @@
         <service
             android:name=".service.AppProfileMonitorService"
             android:exported="false"
+            android:process=":dolby_core"
             android:enabled="true" />
 
         <service
@@ -94,6 +95,7 @@
             android:label="@string/dolby_notification_listener_label"
             android:permission="android.permission.BIND_NOTIFICATION_LISTENER_SERVICE"
             android:exported="true"
+            android:process=":dolby_core"
             android:enabled="true">
             <intent-filter>
                 <action android:name="android.service.notification.NotificationListenerService" />
@@ -104,6 +106,7 @@
             android:name=".service.DolbyEffectService"
             android:exported="false"
             android:enabled="true"
+            android:process=":dolby_core"
             android:stopWithTask="false" />
 
     </application>
